@@ -1,0 +1,65 @@
+package one;
+import java.util.*;
+
+
+public class Student {
+    private String sName;
+    private String gender;
+    private int age;
+    private int no;//学生临时编号,用于产生Id
+    private int id;
+    private String pwd;
+
+    static String key;//String:id+pwd
+    private static int Base;
+    static List<Student> stuList;
+    //static List<List<Object>> listAll;
+    //static Map<MakeKey,List> stuMap;
+
+    {
+        //stuMap=new HashMap<>();
+        //listAll=new ArrayList<>();
+        stuList=new ArrayList<Student>();
+        Base=2018000;
+    }
+
+    public Student(String sName, int age, String gender) {
+        this.sName=sName;
+        this.gender=gender;
+        this.age=age;
+    }
+
+    public Student(String sName, int age, String gender,String pwd) {
+        this(sName,age,gender);
+        this.pwd = pwd;
+    }
+
+    public final void setId(int n){
+        id=Base+n;
+    }
+    public int getId(){
+        return id;
+    }
+
+    public String getName() {
+        return sName;
+    }
+
+    public void setName(String sName) {
+        this.sName = sName;
+    }
+	public static void addStuTOList(List<Student> stuList){
+        stuList.add(new Student("Smith", 12, "man"));
+        stuList.add(new Student("John",12,"man"));
+        stuList.add(new Student("Merry",13,"woman"));
+        stuList.add(new Student("Shery",12,"women"));
+        stuList.add(new Student("Mackel",12,"man"));
+        for (Student s:stuList){
+            System.out.println(s.getName());
+        }
+    }
+	public static void main(String[] args){
+		addStuToList();
+	}
+}
+
